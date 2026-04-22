@@ -1,0 +1,145 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 100;
+  animation: fadeIn 140ms ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  width: 100%;
+  max-width: 520px;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 80px rgba(0,0,0,.7);
+  animation: slideUp 160ms cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modalTitle {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.closeBtn {
+  width: 30px; height: 30px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-2);
+  font-size: .85rem;
+  display: grid;
+  place-items: center;
+  transition: background var(--transition), color var(--transition);
+}
+.closeBtn:hover { background: var(--bg-3); color: var(--text); }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.4rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  flex: 1;
+}
+
+.field span {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.field input,
+.field textarea,
+.field select {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .6rem .8rem;
+  color: var(--text);
+  font-size: .9rem;
+  transition: border-color var(--transition);
+  resize: vertical;
+}
+.field input::placeholder,
+.field textarea::placeholder { color: var(--text-3); }
+.field input:focus,
+.field textarea:focus,
+.field select:focus { outline: none; border-color: var(--accent); }
+
+.field select option { background: var(--bg-2); }
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: .75rem;
+}
+
+.error {
+  background: rgba(255,92,92,.1);
+  border: 1px solid rgba(255,92,92,.25);
+  border-radius: var(--radius);
+  padding: .55rem .8rem;
+  font-size: .83rem;
+  color: var(--red);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: .6rem;
+  padding-top: .25rem;
+}
+
+.cancelBtn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .6rem 1.1rem;
+  font-size: .875rem;
+  color: var(--text-2);
+  transition: background var(--transition), color var(--transition);
+}
+.cancelBtn:hover { background: var(--bg-2); color: var(--text); }
+
+.saveBtn {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: var(--radius);
+  padding: .6rem 1.3rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: .9rem;
+  transition: background var(--transition);
+}
+.saveBtn:hover:not(:disabled) { background: var(--accent-dk); }
+.saveBtn:disabled { opacity: .5; cursor: not-allowed; }
